@@ -17,5 +17,9 @@ COPY /keys/* /tmp/keys/
 COPY /scripts/authenticate_gcloud.sh /tmp/
 ENV CLOUDSDK_PYTHON_SITEPACKAGES=1
 RUN chmod +x /tmp/authenticate_gcloud.sh && sh /tmp/authenticate_gcloud.sh
+
+#Download Docker binary
+RUN wget https://get.docker.com/builds/Linux/x86_64/docker-1.10.1 -q -O /usr/bin/docker \
+  && chmod +x /usr/bin/docker
  
 USER jenkins
