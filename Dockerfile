@@ -21,6 +21,7 @@ COPY /keys/* /tmp/keys/
 
 #Authenticate gcloud
 COPY /scripts/authenticate_gcloud.sh /tmp/
+ENV CLOUDSDK_PYTHON_SITEPACKAGES=1
 RUN export CLOUDSDK_PYTHON_SITEPACKAGES=1 \
   && chmod +x /tmp/authenticate_gcloud.sh \
   && sh /tmp/authenticate_gcloud.sh
